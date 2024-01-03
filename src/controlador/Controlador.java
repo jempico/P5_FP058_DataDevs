@@ -21,9 +21,9 @@ public class Controlador {
 
 	public ArrayList mostrarArticulos() { return datos.mostrarArticulos(); }
 
-	public void addCliente(String nombre, String domicilio, String email, String nif, String tipoCliente)
+	public void addCliente(String nombre, String domicilio, String email, String id_cliente, String tipoCliente)
 	{
-		datos.addCliente(nombre, domicilio, email, nif, tipoCliente);
+		datos.addCliente(nombre, domicilio, email, id_cliente, tipoCliente);
 	}
 
 	public ArrayList mostrarClientes() { return datos.mostrarClientes(); }
@@ -32,8 +32,8 @@ public class Controlador {
 
 	public ArrayList mostrarClientesPremium() { return datos.mostrarClientesPremium(); }
 
-	public void addPedido(int idPedido, String nifCliente, Integer idArticulo, int cantidad, String fechaHoraPedido)  {
-		datos.addPedido(idPedido, nifCliente, idArticulo, cantidad, fechaHoraPedido);
+	public void addPedido(int idPedido, String id_cliente, Integer idArticulo, int cantidad, String fechaHoraPedido)  {
+		datos.addPedido(idPedido, id_cliente, idArticulo, cantidad, fechaHoraPedido);
 	}
 
 	public ArrayList mostrarPedidos() { return datos.mostrarPedidos(); }

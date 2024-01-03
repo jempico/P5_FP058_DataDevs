@@ -2,8 +2,8 @@ package modelo;
 
 public class ClienteEstandard extends Cliente{
 
-	public ClienteEstandard(String nombre, String domicilio, String email, String nif) {
-		super(nombre, domicilio, email, nif, "estandar");
+	public ClienteEstandard(String nombre, String domicilio, String email, String id_cliente) {
+		super(nombre, domicilio, email, id_cliente, "estandar");
 
 	}
 

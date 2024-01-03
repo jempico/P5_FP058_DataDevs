@@ -5,19 +5,19 @@ public abstract class Cliente {
 	private String nombre;
 	private String domicilio;
 	private String email;
-	private String nif;
+	private String id_cliente;
 	private String tipoCliente;
 
 
 	public abstract String tipoCliente();
 	public abstract float calcAnual();
 	public abstract float descuentoEnv();
-	public Cliente(String nombre, String domicilio, String email, String nif, String tipoCliente) {
+	public Cliente(String nombre, String domicilio, String email, String id_cliente, String tipoCliente) {
 		super();
 		this.nombre = nombre;
 		this.domicilio = domicilio;
 		this.email = email;
-		this.nif = nif;
+		this.id_cliente = id_cliente;
 		this.tipoCliente = tipoCliente;
 	}
 
@@ -39,11 +39,11 @@ public abstract class Cliente {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getNif() {
-		return nif;
+	public String getId_cliente() {
+		return id_cliente;
 	}
-	public void setNif(String nif) {
-		this.nif = nif;
+	public void setId_cliente(String id_cliente) {
+		this.id_cliente = id_cliente;
 	}
 
 	public String getTipoCliente() {
@@ -55,7 +55,7 @@ public abstract class Cliente {
 	}
 	@Override
 	public String toString() {
-		return "Cliente [nombre=" + nombre + ", domicilio=" + domicilio + ", email=" + email + ", nif=" + nif + "]";
+		return "Cliente [nombre=" + nombre + ", domicilio=" + domicilio + ", email=" + email + ", id_cliente=" + id_cliente + "]";
 	}
 	
 	

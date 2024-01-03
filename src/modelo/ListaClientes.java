@@ -24,10 +24,10 @@ public class ListaClientes extends Lista<Cliente> {
         return clientesEstandar;
     }
 
-    public Cliente findClienteByNif(String nif) {
+    public Cliente findClienteById_cliente(String id_cliente) {
         Cliente clientefound = null;
         for (Cliente cliente : this.lista) {
-            if (cliente.getNif() == nif) {
+            if (cliente.getId_cliente() == id_cliente) {
                 clientefound = cliente;
             }
         }

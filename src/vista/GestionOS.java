@@ -22,7 +22,7 @@ public class GestionOS {
         controlador = new Controlador();
         boolean salir = false;
         String opcion;
-        cargarDatosEjemplo();
+        //cargarDatosEjemplo();
 
         do {
 
@@ -83,7 +83,7 @@ public class GestionOS {
 
     }
 
-    public void cargarDatosEjemplo() {
+    /*public void cargarDatosEjemplo() {
         controlador.addArticulo(111, "mesa", 40.5F, 10.5F, 5000);
         controlador.addArticulo(222, "silla", 25.5F, 5.5F, 5000);
         controlador.addArticulo(333, "armario", 115.5F, 25.5F, 5000);
@@ -93,7 +93,7 @@ public class GestionOS {
         controlador.addCliente("Carlos", "C/Verdi 7", "carlos@gmail.com", "17894565R", "Premium");
         controlador.addPedido(56401,"78653325N", 111, 2, "2023-11-01 21:15");
         controlador.addPedido(97415,"6667895T", 222, 4, "2023-10-28 11:30");
-    }
+    }*/
 
     public String getCurrentDateTime() {
         return "2023-11-29T00:00:00";
@@ -181,8 +181,9 @@ public class GestionOS {
                 System.out.println("");
                 this.mostrarClientes();
                 System.out.println("");
-                System.out.println("Ingresa el nif del cliente: ");
-                String nifCliente = teclado.next();
+                System.out.println("Ingresa el id_cliente del cliente: ");
+                String id_cliente = teclado.next();
+
 
                 System.out.println("Escoge el articulo del pedido.");
                 System.out.println("----------------------------------");
@@ -195,7 +196,7 @@ public class GestionOS {
                 System.out.println(numPedido);
                 System.out.println(idArticulo);
                 System.out.println(unidades);
-                controlador.addPedido(numPedido, nifCliente, idArticulo, unidades,  "2023-11-29 00:00");
+                controlador.addPedido(numPedido, id_cliente, idArticulo, unidades,  "2023-11-29 00:00");
             }
         } catch (InputMismatchException e) {
             System.out.println("Ha habido algún error en el tipo de dato introducido. Vuelve a intentarlo");
@@ -256,13 +257,13 @@ public class GestionOS {
 
             System.out.println("Email del cliente: ");
             String email = teclado.next();
-            System.out.println("NIF del cliente: ");
-            String nif = teclado.next();
+            System.out.println("ID del cliente: ");
+            String id_cliente = teclado.next();
 
             System.out.println("Tipo de cliente (Estándar/Premium): ");
             String tipoCliente = teclado.next();
 
-            controlador.addCliente(nombre, domicilio, email, nif, tipoCliente);
+            controlador.addCliente(nombre, domicilio, email, id_cliente, tipoCliente);
         } catch (InputMismatchException e) {
             System.out.println("Ha habido algún error en el tipo de dato introducido. Vuelve a intentarlo");
             System.exit(0);

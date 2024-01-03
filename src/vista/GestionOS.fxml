@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="412.0" prefWidth="614.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vista.GestionOSController">
+   <effect>
+      <SepiaTone />
+   </effect>
+   <children>
+      <Button layoutX="327.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleMostrarArticulosAction" prefHeight="50.0" prefWidth="167.0" text="Mostrar artículos" />
+      <Button layoutX="422.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleAddClienteAction" prefHeight="50.0" prefWidth="148.0" text="Anadir clientes" />
+      <Button layoutX="54.0" layoutY="147.0" mnemonicParsing="false" onAction="#handleMostrarClientesAction" prefHeight="42.0" prefWidth="114.0" text="Mostrar clientes" />
+      <Button layoutX="414.0" layoutY="239.0" mnemonicParsing="false" onAction="#handleMostrarClientesEstandarAction" prefHeight="42.0" prefWidth="158.0" text="Mostrar clientes estándar" />
+      <Button layoutX="36.0" layoutY="244.0" mnemonicParsing="false" onAction="#handleMostrarClientesPremiumAction" prefHeight="42.0" prefWidth="167.0" text="Mostrar clientes premium" />
+      <Button layoutX="36.0" layoutY="331.0" mnemonicParsing="false" onAction="#handleAddPedidoAction" prefHeight="50.0" prefWidth="148.0" text="Anadir pedido" />
+      <Button layoutX="427.0" layoutY="329.0" mnemonicParsing="false" onAction="#handleEliminarPedidoAction" prefHeight="50.0" prefWidth="148.0" text="Eliminar pedido" />
+      <Button layoutX="235.0" layoutY="331.0" mnemonicParsing="false" onAction="#handleMostrarPedidosAction" prefHeight="50.0" prefWidth="136.0" text="Mostrar pedidos" />
+      <Button layoutX="112.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleAddArticuloAction" prefHeight="50.0" prefWidth="148.0" text="Anadir artículo" />
+   </children>
+</AnchorPane>

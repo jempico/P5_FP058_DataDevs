@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vista.MostrarArticulosController">
+    <children>
+        <TableView fx:id="tableViewArticulos" prefHeight="400.0" prefWidth="600.0">
+            <columns>
+                <TableColumn fx:id="colid_articulo" prefWidth="123.20001375675201" text="id_articulo" />
+                <TableColumn fx:id="coldescripcion" prefWidth="93.5999984741211" text="descripcion" />
+                <TableColumn fx:id="colpvp" prefWidth="118.0" text="pvp" />
+                <TableColumn fx:id="colgastosenvio" prefWidth="92.79998779296875" text="gastosenvio" />
+                <TableColumn fx:id="colpreparacion" prefWidth="157.39999389648438" text="preparacion" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

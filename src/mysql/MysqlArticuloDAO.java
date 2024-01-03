@@ -32,7 +32,7 @@ public class MysqlArticuloDAO implements ArticuloDAO {
             stat.setInt(1, a.getId());
             stat.setString(2, a.getDescripcion());
             stat.setFloat(3, a.getPvp());
-            stat.setFloat(4, a.getGastos());
+            stat.setFloat(4, a.getGastosEnvio());
             stat.setInt(5, a.getPreparacion());
             stat.executeUpdate();
          }catch(SQLException ex) {

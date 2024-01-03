@@ -41,7 +41,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- Table `onlinestore`.`clientes`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `onlinestore`.`clientes` (
-  `nif` VARCHAR(50) NOT NULL,
+  `id_cliente` VARCHAR(50) NOT NULL,
   `nombre` VARCHAR(50) NULL DEFAULT NULL,
   `domicilio` VARCHAR(100) NULL DEFAULT NULL,
   `email` VARCHAR(100) NULL DEFAULT NULL,

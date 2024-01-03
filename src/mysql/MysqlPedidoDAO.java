@@ -1,18 +1,15 @@
 package mysql;
 
-import dao.ArticuloDAO;
 import dao.DaoException;
 import dao.PedidoDAO;
 import modelo.Articulo;
 import modelo.Cliente;
-import modelo.Datos;
 import modelo.Pedido;
 
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.List;
 
 public class MysqlPedidoDAO implements PedidoDAO {
     private Connection conn;
@@ -39,11 +36,11 @@ public class MysqlPedidoDAO implements PedidoDAO {
         try {
             stat = conn.prepareStatement(INSERT);
             stat.setInt(1, a.getNumeroPedido());
-            //stat.setObject(2, mysqlClienteDAO.obtener(a.getCliente().getNif()));
+            //stat.setObject(2, mysqlClienteDAO.obtener(a.getCliente().getId_cliente()));
             //stat.setObject(3, mysqlArticuloDAO.obtener(a.getArticulo().getId()));
             stat.setInt(2, a.getCantidad());
             stat.setDate(3,  a.getFechaSqlDate());
-            stat.setString(4, a.getCliente().getNif());
+            stat.setString(4, a.getCliente().getId_cliente());
             stat.setInt(5, a.getArticulo().getId());
             stat.executeUpdate();
         }catch(SQLException ex) {

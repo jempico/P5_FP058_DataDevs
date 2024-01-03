@@ -10,7 +10,7 @@ public class Util {
         Connection conn = null;
 
         try {
-            conn = DriverManager.getConnection(jdbc,"root", "root");
+            conn = DriverManager.getConnection(jdbc,"root", "1234");
             System.out.println("BBDD Correctamente conectada");
         } catch(Exception e) {
             System.out.println("Error en la conexión con BD");

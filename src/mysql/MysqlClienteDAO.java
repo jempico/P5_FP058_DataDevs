@@ -5,34 +5,32 @@ import dao.DaoException;
 import modelo.Cliente;
 import modelo.ClienteEstandard;
 import modelo.ClientePremium;
-import modelo.Pedido;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
 
 public class MysqlClienteDAO implements ClienteDAO {
     private Connection conn;
 
 
-    final String INSERT = "INSERT INTO clientes(nif, nombre, domicilio, email, tipoCliente, calcAnual, descuentoEnv) VALUES (?, ?, ?, ?, ?, ?, ?)";
-    final String DELETE = "DELETE FROM clientes WHERE nif = ?";
+    final String INSERT = "INSERT INTO clientes(id_cliente, nombre, domicilio, email, tipoCliente, calcAnual, descuentoEnv) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    final String DELETE = "DELETE FROM clientes WHERE id_cliente = ?";
 
-    final String GETALL = "SELECT nif, nombre, domicilio, email, tipoCliente, calcAnual, descuentoEnv FROM clientes";
-    final String GETONE = "SELECT nif, nombre, domicilio, email, tipoCliente, calcAnual, descuentoEnv FROM clientes WHERE nif = ?";
+    final String GETALL = "SELECT id_cliente, nombre, domicilio, email, tipoCliente, calcAnual, descuentoEnv FROM clientes";
+    final String GETONE = "SELECT id_cliente, nombre, domicilio, email, tipoCliente, calcAnual, descuentoEnv FROM clientes WHERE id_cliente = ?";
 
     String jdbc = "jdbc:mysql://localhost:3306/onlinestore";
 
     public MysqlClienteDAO(Connection connection) {
         conn = connection;
 
-        //try {
-        //    conn = DriverManager.getConnection(jdbc,"root", "root");
-        //    System.out.println("BBDD Correctamente conectada");
-//
-  //      } catch (SQLException ex) {
-    //        ex.printStackTrace();
-      //  }
+        try {
+           conn = DriverManager.getConnection(jdbc,"root", "1234");
+            System.out.println("BBDD Correctamente conectada");
+
+       } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
 
 
     }
@@ -42,7 +40,7 @@ public class MysqlClienteDAO implements ClienteDAO {
         PreparedStatement stat = null;
         try {
             stat = conn.prepareStatement(INSERT);
-            stat.setString(1, c.getNif());
+            stat.setString(1, c.getId_cliente());
             stat.setString(2, c.getNombre());
             stat.setString(3,  c.getDomicilio());
             stat.setString(4, c.getEmail());
@@ -66,7 +64,7 @@ public class MysqlClienteDAO implements ClienteDAO {
 
     private Cliente convertir(ResultSet rs) throws SQLException {
 
-        String nif = rs.getString("nif");
+        String id_cliente = rs.getString("id_cliente");
         String nombre = rs.getString("nombre");
         String domicilio = rs.getString("domicilio");
         String email = rs.getString("email");
@@ -75,11 +73,11 @@ public class MysqlClienteDAO implements ClienteDAO {
         Float descuentoEnv = rs.getFloat("descuentoEnv");
         Cliente cliente;
         if (tipoCliente.equalsIgnoreCase("estandar")) {
-            cliente = new ClienteEstandard(nombre, domicilio, email, nif);
+            cliente = new ClienteEstandard(nombre, domicilio, email, id_cliente);
         } else if (tipoCliente.equalsIgnoreCase("premium")) {
-            cliente = new ClientePremium(nombre, domicilio, email, nif);
+            cliente = new ClientePremium(nombre, domicilio, email, id_cliente);
         } else {
-            cliente = new ClienteEstandard(nombre, domicilio, email, nif);
+            cliente = new ClienteEstandard(nombre, domicilio, email, id_cliente);
         }
         return cliente;
 

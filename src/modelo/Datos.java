@@ -47,10 +47,10 @@ public class Datos {
 	}
 
 
-	public void addPedido(Integer idPedido, String nif, Integer idArticulo, Integer cantidad, String fechaHoraPedido) {
+	public void addPedido(Integer idPedido, String id_cliente, Integer idArticulo, Integer cantidad, String fechaHoraPedido) {
 		try {
 			 Articulo articulo = mysqlArticuloDAO.obtener(idArticulo);
-			 Cliente cliente = mysqlClienteDAO.obtener(nif);
+			 Cliente cliente = mysqlClienteDAO.obtener(id_cliente);
 			 Pedido pedido = new Pedido(idPedido, cliente, articulo, cantidad, fechaHoraPedido);
 			 mysqlPedidoDAO.insertar(pedido);
 		} catch (DaoException e) {
@@ -87,17 +87,17 @@ public class Datos {
 
 	}
 
-	public void addCliente(String nombre, String domicilio, String email, String nif, String tipoCliente) {
+	public void addCliente(String nombre, String domicilio, String email, String id_cliente, String tipoCliente) {
 
 		Cliente cliente;
 
 		if (tipoCliente.equalsIgnoreCase("estandar")) {
-			cliente = new ClienteEstandard(nombre, domicilio, email, nif);
+			cliente = new ClienteEstandard(nombre, domicilio, email, id_cliente);
 		} else if (tipoCliente.equalsIgnoreCase("premium")) {
-			cliente = new ClientePremium(nombre, domicilio, email, nif);
+			cliente = new ClientePremium(nombre, domicilio, email, id_cliente);
 		} else {
 			System.out.println("Tipo de cliente no válido. Se creará como Estándar por defecto.");
-			cliente = new ClienteEstandard(nombre, domicilio, email, nif);
+			cliente = new ClienteEstandard(nombre, domicilio, email, id_cliente);
 		}
 
 		listaClientes.add(cliente);
@@ -204,8 +204,8 @@ public class Datos {
 		listaPedidos.mostrarPedidosPendientes(clienteFound);
 	}
 
-	public Cliente findClienteByNif(String nif) {
-		return listaClientes.findClienteByNif(nif);
+	public Cliente findClienteById_cliente(String id_cliente) {
+		return listaClientes.findClienteById_cliente(id_cliente);
 	}
 
 	public Articulo findArticuloById(Integer id) {
