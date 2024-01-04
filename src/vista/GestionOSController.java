@@ -124,34 +124,46 @@ public class GestionOSController implements Initializable {
         mostrarPedidos();
     }
 
-    // Implementa tus métodos de lógica aquí
-
-    public void addArticulo(int id_articulo, String descripcion, float pvp, float gastosenvio, int preparacion) {
-        // Implementa la lógica para "Añadir Artículo" a la base de datos
-        try (Connection connection = Util.conectar()) {
-            // Lógica para conectar con la base de datos y realizar la inserción
-            String query = "INSERT INTO articulos (id_articulo, descripcion, pvp, gastosenvio, preparacion) VALUES (?, ?, ?, ?, ?)";
-            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-                preparedStatement.setInt(1, id_articulo);
-                preparedStatement.setString(2, descripcion);
-                preparedStatement.setFloat(3, pvp);
-                preparedStatement.setFloat(4, gastosenvio);
-                preparedStatement.setInt(5, preparacion);
-
-                // Ejecuta la consulta
-                preparedStatement.executeUpdate();
-
-                // Muestra un mensaje de éxito o realiza otras acciones según tus requisitos
-                mostrarMensaje("Artículo agregado correctamente");
-            }
-        } catch (SQLException e) {
-            // Maneja cualquier excepción que pueda ocurrir al interactuar con la base de datos
-            e.printStackTrace();
-            mostrarMensaje("Error al agregar el artículo");
-        }
-
+    @FXML
+    private void handleMostrarPedidosEnviados(){
+        // Lógica cuando se hace clic en "Mostrar Pedidos"
+        mostrarPedidosEnviados();
+    }
+    @FXML
+    private void handleMostrarPedidosPendientes() {
+        // Lógica cuando se hace clic en "Mostrar Pedidos"
+        mostrarPedidosPendientes();
 
     }
+
+    // Implementa tus métodos de lógica aquí
+
+    public void addArticulo(int id_articulo, String descripcion, float pvp, float gastosenvio, int preparacion){
+            // Implementa la lógica para "Añadir Artículo" a la base de datos
+            try (Connection connection = Util.conectar()) {
+                // Lógica para conectar con la base de datos y realizar la inserción
+                String query = "INSERT INTO articulos (id_articulo, descripcion, pvp, gastosenvio, preparacion) VALUES (?, ?, ?, ?, ?)";
+                try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                    preparedStatement.setInt(1, id_articulo);
+                    preparedStatement.setString(2, descripcion);
+                    preparedStatement.setFloat(3, pvp);
+                    preparedStatement.setFloat(4, gastosenvio);
+                    preparedStatement.setInt(5, preparacion);
+
+                    // Ejecuta la consulta
+                    preparedStatement.executeUpdate();
+
+                    // Muestra un mensaje de éxito o realiza otras acciones según tus requisitos
+                    mostrarMensaje("Artículo agregado correctamente");
+                }
+            } catch (SQLException e) {
+                // Maneja cualquier excepción que pueda ocurrir al interactuar con la base de datos
+                e.printStackTrace();
+                mostrarMensaje("Error al agregar el artículo");
+            }
+
+        }
+
 
     private void mostrarArticulos() {
         // Lógica para "Mostrar Artículos" - ahora llamando al método correspondiente en el controlador de MostrarArticulos
@@ -192,6 +204,15 @@ public class GestionOSController implements Initializable {
     private void mostrarPedidos() {
         // Implementa la lógica para "Mostrar Pedidos"
         System.out.println("Se hizo clic en Mostrar Pedidos");
+    }
+
+    private void mostrarPedidosPendientes() {
+            // Implementa la lógica para "Mostrar Pedidos"
+            System.out.println("Se hizo clic en Mostrar Pedidos Pendientes");
+    }
+    private void mostrarPedidosEnviados() {
+            // Implementa la lógica para "Mostrar Pedidos"
+            System.out.println("Se hizo clic en Mostrar Pedidos Enviados");
     }
 
     private void abrirVentana(String titulo, String fxml, Object controller, Consumer<Object> configureController) {
@@ -235,7 +256,7 @@ public class GestionOSController implements Initializable {
             return mysqlArticuloDAO.obtenerTodos();
         } catch (DaoException e) {
             e.printStackTrace();
-            // Manejar la excepción apropiadamente en tu aplicación
+            // Manejar la excepción apropiadamente en la aplicación
             return new ArrayList<>(); // o lanzar una excepción
         }
     }
@@ -256,5 +277,6 @@ public class GestionOSController implements Initializable {
         this.mostrarArticulosController = mostrarArticulosController;
     }
 }
+
 
 
