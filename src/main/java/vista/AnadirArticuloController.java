@@ -1,7 +1,9 @@
 package main.java.vista;
+import main.java.controlador.Controlador;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Control;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
@@ -25,14 +27,20 @@ public class AnadirArticuloController implements Initializable {
     private TextField txtpreparacion;
 
     private GestionOSController controller;
+
+    private Controlador controlador;
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         controller = new GestionOSController();
+        controlador = new Controlador();
 
     }
 
     @FXML
     private void addArticulo() {
+
         try {
             // Obtén los valores de los TextField
             int id_articulo = Integer.parseInt(txtid_articulo.getText());
@@ -42,8 +50,7 @@ public class AnadirArticuloController implements Initializable {
             int preparacion = Integer.parseInt(txtpreparacion.getText());
 
             // Llama al método addArticulo del controlador
-            controller.addArticulo(id_articulo, descripcion, pvp, gastosenvio, preparacion);
-            System.out.println("1 addArticulo method called");
+            controlador.addArticulo(descripcion, pvp, gastosenvio, preparacion);
 
             // Puedes mostrar un mensaje de éxito o realizar otras acciones según tus requisitos
             controller.mostrarMensaje("Artículo agregado correctamente");

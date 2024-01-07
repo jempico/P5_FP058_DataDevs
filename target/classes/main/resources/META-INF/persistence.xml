@@ -2,9 +2,9 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
     <persistence-unit name="default">
 
-        <class>entity.Articulo</class>
-        <class>entity.Cliente</class>
-        <class>entity.Pedido</class>
+        <class>main.java.entity.Articulo</class>
+        <class>main.java.entity.Cliente</class>
+        <class>main.java.entity.Pedido</class>
         <properties>
             <!-- Hibernate-specific properties -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>

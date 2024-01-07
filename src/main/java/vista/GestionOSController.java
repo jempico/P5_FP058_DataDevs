@@ -18,7 +18,7 @@ import java.util.function.Consumer;
 
 public class GestionOSController implements Initializable {
 
-    private Controlador controlador;
+    public Controlador controlador;
     private AnadirArticuloController addArticuloController;
     // private MostrarArticulosController mostrarArticulosController;
 
@@ -50,10 +50,16 @@ public class GestionOSController implements Initializable {
     private Button btnMostrarPedidos;
 
 
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-            controlador = new Controlador();
+        System.out.println("Im in initalizator gestionOS ");
+
+        controlador = new Controlador();
     }
+
+
 
     @FXML
     private void handleAddArticuloAction() {
@@ -128,17 +134,6 @@ public class GestionOSController implements Initializable {
         mostrarPedidosPendientes();
 
     }
-
-    // Implementa tus métodos de lógica aquí
-
-    public void addArticulo(int id_articulo, String descripcion, Double pvp, Double gastosenvio, int preparacion){
-            // Llamamos al controlador
-        System.out.println("2 addArticulo method called");
-
-        controlador.addArticulo(descripcion, pvp, gastosenvio, preparacion);
-        }
-
-
     private void mostrarArticulos() {
         // Lógica para "Mostrar Artículos" - ahora llamando al método correspondiente en el controlador de MostrarArticulos
         //ArrayList<Articulo> listaDeArticulos = obtenerListaDeArticulos();

@@ -14,13 +14,24 @@ public class Controlador {
     public Controlador()
     {
         datos = new Datos();
-    }
+        System.out.println("CONTROLADOR IS NOT NULL");
 
-    public void addArticulo(String descripcion, Double precio, Double gastos, Integer preparacion)
+    }
+    public void test(String descripcion, Double pvp, Double gastosenvio, Integer preparacion)
+    {
+        System.out.println("TEST");
+
+
+    }
+    public void addArticulo(String descripcion, Double pvp, Double gastosenvio, Integer preparacion)
     {
         System.out.println("3 addArticulo method called");
+        System.out.println(descripcion);
+        System.out.println(pvp);
+        System.out.println(gastosenvio);
+        System.out.println(preparacion);
 
-        datos.addArticulo(descripcion, precio, gastos, preparacion);
+        datos.addArticulo(descripcion, pvp, gastosenvio, preparacion);
     }
 
     public void addPedido(Integer idCliente, Integer idArticulo, Integer cantidad, String fechaHoraPedido)  {

@@ -9,16 +9,16 @@ import main.java.vista.GestionOSController;
 
 public class OnlineStore extends Application {
 
-
     @Override
     public void start(Stage primaryStage) throws Exception {
         // Crea los controladores
+
         AnadirArticuloController addArticuloController = new AnadirArticuloController();
         GestionOSController gestionOSController = new GestionOSController();
 
         // Crea el FXMLLoader y carga la GUI
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/java/vista/GestionOS.fxml"));
-        Parent root = loader.load();
+         Parent root = loader.load();
 
         // Establece las referencias a los controladores en el controlador de la GUI
         ((GestionOSController) loader.getController()).setAnadirArticuloController(addArticuloController);
