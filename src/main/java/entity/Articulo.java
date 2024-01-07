@@ -87,4 +87,6 @@ public class Articulo {
                 ", preparacion=" + preparacion +
                 '}';
     }
+
+
 }

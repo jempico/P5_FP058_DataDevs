@@ -35,7 +35,6 @@ public class AnadirArticuloController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         controller = new GestionOSController();
         controlador = new Controlador();
-
     }
 
     @FXML
@@ -43,8 +42,7 @@ public class AnadirArticuloController implements Initializable {
 
         try {
             // Obtén los valores de los TextField
-            int id_articulo = Integer.parseInt(txtid_articulo.getText());
-            String descripcion = txtdescripcion.getText();
+             String descripcion = txtdescripcion.getText();
             Double pvp = Double.parseDouble(txtpvp.getText());
             Double gastosenvio = Double.parseDouble(txtgastosenvio.getText());
             int preparacion = Integer.parseInt(txtpreparacion.getText());

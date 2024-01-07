@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.function.Consumer;
 
@@ -20,7 +21,7 @@ public class GestionOSController implements Initializable {
 
     public Controlador controlador;
     private AnadirArticuloController addArticuloController;
-    // private MostrarArticulosController mostrarArticulosController;
+    private MostrarArticulosController mostrarArticulosController;
 
     @FXML
     private Button btnAddArticulo;
@@ -71,14 +72,14 @@ public class GestionOSController implements Initializable {
     @FXML
     private void handleMostrarArticulosAction() {
         // Lógica cuando se hace clic en "Mostrar Articulos"
-        //abrirVentana("Mostrar Artículos", "MostrarArticulos.fxml", new MostrarArticulosController(), controller -> {
+        // abrirVentana("Mostrar Artículos", "MostrarArticulos.fxml", new MostrarArticulosController(), null);
+         abrirVentana("Mostrar Artículos", "MostrarArticulos.fxml", new MostrarArticulosController(), controller -> {
             // Lógica para configurar el controlador de MostrarArticulos si es necesario
-            //mostrarArticulosController = (MostrarArticulosController) controller;
-            //mostrarArticulosController.setGestionOSController(this); // Asegúrate de llamar a este método
-            // Obtiene la lista de artículos del método obtenerListaDeArticulos y la pasa al método mostrarArticulos
-            //ArrayList<Articulo> listaDeArticulos = obtenerListaDeArticulos();
-            //mostrarArticulosController.mostrarArticulos(listaDeArticulos);
-   //     });
+             mostrarArticulosController = (MostrarArticulosController) controller;
+             mostrarArticulosController.setGestionOSController(this); // Asegúrate de llamar a este método
+             List<Articulo> listaDeArticulos = controlador.mostrarArticulos();
+             mostrarArticulosController.mostrarArticulos(listaDeArticulos);
+        });
     }
 
     @FXML
@@ -235,9 +236,9 @@ public class GestionOSController implements Initializable {
     public void setGestionOSController(GestionOSController gestionOSController) {
     }
 
-    //public void setMostrarArticulosController(MostrarArticulosController mostrarArticulosController) {
-    //    this.mostrarArticulosController = mostrarArticulosController;
-    //}
+    public void setMostrarArticulosController(MostrarArticulosController mostrarArticulosController) {
+       this.mostrarArticulosController = mostrarArticulosController;
+    }
 }
 
 

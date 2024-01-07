@@ -32,8 +32,6 @@ public class Datos {
 
     public void addArticulo(String descripcion, Double precio, Double gastos, Integer preparacion) {
         try {
-            System.out.println("4 addArticulo method called");
-
             transaction.begin();
             Articulo articulo = new Articulo();
             articulo.setDescripcion( descripcion);
@@ -41,8 +39,6 @@ public class Datos {
             articulo.setGastosenvio(gastos);
             articulo.setPreparacion(preparacion);
             entityManager.merge(articulo);
-            System.out.println("***Artículo correctamente añadido!!***");
-            System.out.println(articulo.toString());
             // Commit the transaction
             transaction.commit();
         } catch (Exception e) {

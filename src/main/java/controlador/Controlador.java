@@ -14,7 +14,6 @@ public class Controlador {
     public Controlador()
     {
         datos = new Datos();
-        System.out.println("CONTROLADOR IS NOT NULL");
 
     }
     public void test(String descripcion, Double pvp, Double gastosenvio, Integer preparacion)
@@ -25,12 +24,6 @@ public class Controlador {
     }
     public void addArticulo(String descripcion, Double pvp, Double gastosenvio, Integer preparacion)
     {
-        System.out.println("3 addArticulo method called");
-        System.out.println(descripcion);
-        System.out.println(pvp);
-        System.out.println(gastosenvio);
-        System.out.println(preparacion);
-
         datos.addArticulo(descripcion, pvp, gastosenvio, preparacion);
     }
 
