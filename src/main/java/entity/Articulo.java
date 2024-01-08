@@ -10,7 +10,7 @@ public class Articulo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id_articulo")
-    private int id_articulo;
+    private int idArticulo;
     @Basic
     @Column(name = "descripcion")
     private String descripcion;
@@ -24,12 +24,12 @@ public class Articulo {
     @Column(name = "preparacion")
     private Integer preparacion;
 
-    public int getid_articulo() {
-        return id_articulo;
+    public int getIdArticulo() {
+        return idArticulo;
     }
 
-    public void setid_articulo(int id_articulo) {
-        this.id_articulo = id_articulo;
+    public void setIdArticuloo(int idArticulo) {
+        this.idArticulo = idArticulo;
     }
 
     public String getDescripcion() {
@@ -69,18 +69,18 @@ public class Articulo {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Articulo articulos = (Articulo) o;
-        return id_articulo == articulos.id_articulo && Objects.equals(descripcion, articulos.descripcion) && Objects.equals(pvp, articulos.pvp) && Objects.equals(gastosenvio, articulos.gastosenvio) && Objects.equals(preparacion, articulos.preparacion);
+        return idArticulo == articulos.idArticulo && Objects.equals(descripcion, articulos.descripcion) && Objects.equals(pvp, articulos.pvp) && Objects.equals(gastosenvio, articulos.gastosenvio) && Objects.equals(preparacion, articulos.preparacion);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id_articulo, descripcion, pvp, gastosenvio, preparacion);
+        return Objects.hash(idArticulo, descripcion, pvp, gastosenvio, preparacion);
     }
 
     @Override
     public String toString() {
         return "Articulos{" +
-                "id_articulo=" + id_articulo +
+                "id_articulo=" + idArticulo +
                 ", descripcion='" + descripcion + '\'' +
                 ", pvp=" + pvp +
                 ", gastosenvio=" + gastosenvio +

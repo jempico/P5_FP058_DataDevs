@@ -45,7 +45,7 @@ public class MostrarArticulosController implements Initializable {
         controlador = new Controlador();
 
         // Configurar las columnas de la tabla
-        colid_articulo.setCellValueFactory(new PropertyValueFactory<Articulo, Integer>("id_articulo"));
+        colid_articulo.setCellValueFactory(new PropertyValueFactory<Articulo, Integer>("idArticulo"));
         coldescripcion.setCellValueFactory(new PropertyValueFactory<Articulo, String>("descripcion"));
         colpvp.setCellValueFactory(new PropertyValueFactory<Articulo, Double>("pvp"));
         colgastosenvio.setCellValueFactory(new PropertyValueFactory<Articulo, Double>("gastosenvio"));
@@ -63,8 +63,6 @@ public class MostrarArticulosController implements Initializable {
         // Obtener datos desde el DAO
         try {
             List<Articulo> listaDeArticulos = controlador.mostrarArticulos();
-            System.out.println("Lista de articulos fetched");
-            System.out.println(listaDeArticulos);
             // Agregar datos a la tabla
             tableViewArticulos.getItems().addAll(listaDeArticulos);
             this.mostrarArticulos(listaDeArticulos);

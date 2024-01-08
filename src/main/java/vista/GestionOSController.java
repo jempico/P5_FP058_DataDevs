@@ -22,7 +22,9 @@ public class GestionOSController implements Initializable {
     public Controlador controlador;
     private AnadirArticuloController addArticuloController;
     private MostrarArticulosController mostrarArticulosController;
+    private MostrarClientesController mostrarClientesController;
 
+    private AnadirClienteController addClienteController;
     @FXML
     private Button btnAddArticulo;
 
@@ -71,8 +73,6 @@ public class GestionOSController implements Initializable {
 
     @FXML
     private void handleMostrarArticulosAction() {
-        // Lógica cuando se hace clic en "Mostrar Articulos"
-        // abrirVentana("Mostrar Artículos", "MostrarArticulos.fxml", new MostrarArticulosController(), null);
          abrirVentana("Mostrar Artículos", "MostrarArticulos.fxml", new MostrarArticulosController(), controller -> {
             // Lógica para configurar el controlador de MostrarArticulos si es necesario
              mostrarArticulosController = (MostrarArticulosController) controller;
@@ -85,13 +85,18 @@ public class GestionOSController implements Initializable {
     @FXML
     private void handleAddClienteAction() {
         // Lógica cuando se hace clic en "Añadir Cliente"
-        addCliente();
+        abrirVentana("Añadir Cliente", "AnadirCliente.fxml", new AnadirClienteController(), null);
     }
 
     @FXML
     private void handleMostrarClientesAction() {
-        // Lógica cuando se hace clic en "Mostrar Clientes"
-        mostrarClientes();
+        abrirVentana("Mostrar Clientes", "MostrarClientes.fxml", new MostrarClientesController(), controller -> {
+            // Lógica para configurar el controlador de MostrarArticulos si es necesario
+            mostrarClientesController = (MostrarClientesController) controller;
+            mostrarClientesController.setGestionOSController(this); // Asegúrate de llamar a este método
+            List<Cliente> listaDeClientes = controlador.mostrarClientes();
+            mostrarClientesController.mostrarClientes(listaDeClientes);
+        });
     }
 
     @FXML
@@ -233,11 +238,19 @@ public class GestionOSController implements Initializable {
         this.addArticuloController = addArticuloController;
     }
 
+    public void setAnadirClienteController(AnadirClienteController addClienteController) {
+        this.addClienteController = addClienteController;
+    }
+
     public void setGestionOSController(GestionOSController gestionOSController) {
     }
 
     public void setMostrarArticulosController(MostrarArticulosController mostrarArticulosController) {
        this.mostrarArticulosController = mostrarArticulosController;
+    }
+
+    public void setMostrarClientesController(MostrarClientesController mostrarClientesController) {
+        this.mostrarClientesController = mostrarClientesController;
     }
 }
 

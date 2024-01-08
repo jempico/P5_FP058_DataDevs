@@ -4,9 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import main.java.vista.AnadirArticuloController;
-import main.java.vista.GestionOSController;
-import main.java.vista.MostrarArticulosController;
+import main.java.vista.*;
 
 public class OnlineStore extends Application {
 
@@ -17,6 +15,8 @@ public class OnlineStore extends Application {
         AnadirArticuloController addArticuloController = new AnadirArticuloController();
         GestionOSController gestionOSController = new GestionOSController();
         MostrarArticulosController mostrarArticulosController = new MostrarArticulosController();
+        AnadirClienteController addClienteController = new AnadirClienteController();
+        MostrarClientesController mostrarClientesController = new MostrarClientesController();
 
         // Crea el FXMLLoader y carga la GUI
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/java/vista/GestionOS.fxml"));
@@ -26,6 +26,8 @@ public class OnlineStore extends Application {
         ((GestionOSController) loader.getController()).setAnadirArticuloController(addArticuloController);
         ((GestionOSController) loader.getController()).setGestionOSController(gestionOSController);
         ((GestionOSController) loader.getController()).setMostrarArticulosController(mostrarArticulosController);
+        ((GestionOSController) loader.getController()).setAnadirClienteController(addClienteController);
+        ((GestionOSController) loader.getController()).setMostrarClientesController(mostrarClientesController);
 
         // Crea la Scene y muéstrala
         Scene scene = new Scene(root, 800, 600);
