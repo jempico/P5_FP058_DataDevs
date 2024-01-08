@@ -9,19 +9,22 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AnadirArticuloController implements Initializable {
+public class AnadirClienteController implements Initializable {
 
     @FXML
-    private TextField txtdescripcion;
+    private TextField txtnif;
 
     @FXML
-    private TextField txtpvp;
+    private TextField txtnombre;
 
     @FXML
-    private TextField txtgastosenvio;
+    private TextField txtdomicilio;
 
     @FXML
-    private TextField txtpreparacion;
+    private TextField txtemail;
+
+    @FXML
+    private TextField txttipo;
 
     private GestionOSController controller;
 
@@ -35,20 +38,20 @@ public class AnadirArticuloController implements Initializable {
     }
 
     @FXML
-    private void addArticulo() {
+    private void addCliente() {
 
         try {
             // Obtén los valores de los TextField
-             String descripcion = txtdescripcion.getText();
-            Double pvp = Double.parseDouble(txtpvp.getText());
-            Double gastosenvio = Double.parseDouble(txtgastosenvio.getText());
-            int preparacion = Integer.parseInt(txtpreparacion.getText());
+            String nombre = txtnombre.getText();
+            String domicilio = txtdomicilio.getText();
+            String email = txtemail.getText();
+            String nif = txtnif.getText();
+            Integer tipoCliente = Integer.parseInt(txttipo.getText());
 
-            // Llama al método addArticulo del controlador
-            controlador.addArticulo(descripcion, pvp, gastosenvio, preparacion);
-
-            // Puedes mostrar un mensaje de éxito o realizar otras acciones según tus requisitos
-            controller.mostrarMensaje("Artículo agregado correctamente");
+            // Llama al método addCliente del controlador
+            controlador.addCliente(nombre, domicilio, email, nif, tipoCliente);
+             // Puedes mostrar un mensaje de éxito o realizar otras acciones según tus requisitos
+            controller.mostrarMensaje("Cliente agregado correctamente");
 
         } catch (NumberFormatException e) {
             mostrarMensaje("Ha habido un error en el formato de entrada");
