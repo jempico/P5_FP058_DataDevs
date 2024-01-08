@@ -23,8 +23,22 @@ public class GestionOSController implements Initializable {
     private AnadirArticuloController addArticuloController;
     private MostrarArticulosController mostrarArticulosController;
     private MostrarClientesController mostrarClientesController;
+    private MostrarClientesEstandarController mostrarClientesEstandarController;
+
+    private MostrarClientesPremiumController mostrarClientesPremiumController;
+
+    private MostrarPedidosController mostrarPedidosController;
+
+    private MostrarPedidosEnviadosController mostrarPedidosEnviadosController;
+
+    private MostrarPedidosPendientesController mostrarPedidosPendientesController;
 
     private AnadirClienteController addClienteController;
+
+    private AnadirPedidoController addPedidoController;
+
+    private EliminarPedidoController deletePedidoController;
+
     @FXML
     private Button btnAddArticulo;
 
@@ -102,42 +116,72 @@ public class GestionOSController implements Initializable {
     @FXML
     private void handleMostrarClientesEstandarAction() {
         // Lógica cuando se hace clic en "Mostrar Clientes Estándar"
-        mostrarClientesEstandar();
+        abrirVentana("Mostrar Clientes Estandar", "MostrarClientesEstandar.fxml", new MostrarClientesEstandarController(), controller -> {
+            // Lógica para configurar el controlador de MostrarArticulos si es necesario
+            mostrarClientesEstandarController = (MostrarClientesEstandarController) controller;
+            mostrarClientesEstandarController.setGestionOSController(this); // Asegúrate de llamar a este método
+            List<Cliente> listaDeClientesEstandar = controlador.mostrarClientesEstandar();
+            mostrarClientesEstandarController.mostrarClientesEstandar(listaDeClientesEstandar);
+        });
     }
 
     @FXML
     private void handleMostrarClientesPremiumAction() {
-        // Lógica cuando se hace clic en "Mostrar Clientes Premium"
-        mostrarClientesPremium();
+        // Lógica cuando se hace clic en "Mostrar Clientes Estándar"
+        abrirVentana("Mostrar Clientes Premium", "MostrarClientesPremium.fxml", new MostrarClientesPremiumController(), controller -> {
+            // Lógica para configurar el controlador de MostrarArticulos si es necesario
+            mostrarClientesPremiumController = (MostrarClientesPremiumController) controller;
+            mostrarClientesPremiumController.setGestionOSController(this); // Asegúrate de llamar a este método
+            List<Cliente> listaDeClientesPremium = controlador.mostrarClientesPremium();
+            mostrarClientesPremiumController.mostrarClientesPremium(listaDeClientesPremium);
+        });
     }
 
     @FXML
     private void handleAddPedidoAction() {
         // Lógica cuando se hace clic en "Añadir Pedido"
-        addPedido();
+        abrirVentana("Añadir Pedido", "AnadirPedido.fxml", new AnadirPedidoController(), null);
     }
 
     @FXML
     private void handleEliminarPedidoAction() {
         // Lógica cuando se hace clic en "Eliminar Pedido"
-        eliminarPedido();
+        abrirVentana("Eliminar Pedido", "EliminarPedido.fxml", new EliminarPedidoController(), null);
+
     }
 
     @FXML
     private void handleMostrarPedidosAction() {
-        // Lógica cuando se hace clic en "Mostrar Pedidos"
-        mostrarPedidos();
+        abrirVentana("Mostrar Pedidos", "MostrarPedidos.fxml", new MostrarPedidosController(), controller -> {
+            // Lógica para configurar el controlador de MostrarArticulos si es necesario
+            mostrarPedidosController = (MostrarPedidosController) controller;
+            mostrarPedidosController.setGestionOSController(this); // Asegúrate de llamar a este método
+            List<Pedido> listaDePedidos = controlador.mostrarPedidos();
+            mostrarPedidosController.mostrarPedidos(listaDePedidos);
+        });
     }
 
     @FXML
     private void handleMostrarPedidosEnviados(){
-        // Lógica cuando se hace clic en "Mostrar Pedidos"
-        mostrarPedidosEnviados();
+        // Lógica cuando se hace clic en "Mostrar Pedidos Enviados"
+        abrirVentana("Mostrar Pedidos Enviados", "MostrarPedidosEnviados.fxml", new MostrarPedidosEnviadosController(), controller -> {
+            // Lógica para configurar el controlador de MostrarArticulos si es necesario
+            mostrarPedidosEnviadosController = (MostrarPedidosEnviadosController) controller;
+            mostrarPedidosEnviadosController.setGestionOSController(this); // Asegúrate de llamar a este método
+            List<Pedido> listaDePedidosEnviados = controlador.mostrarPedidosEnviados();
+            mostrarPedidosController.mostrarPedidos(listaDePedidosEnviados);
+        });
     }
     @FXML
     private void handleMostrarPedidosPendientes() {
-        // Lógica cuando se hace clic en "Mostrar Pedidos"
-        mostrarPedidosPendientes();
+        // Lógica cuando se hace clic en "Mostrar Pedidos Pendientes"
+        abrirVentana("Mostrar Pedidos Pendientes", "MostrarPedidosPendientes.fxml", new MostrarPedidosPendientesController(), controller -> {
+            // Lógica para configurar el controlador de MostrarArticulos si es necesario
+            mostrarPedidosPendientesController = (MostrarPedidosPendientesController) controller;
+            mostrarPedidosPendientesController.setGestionOSController(this); // Asegúrate de llamar a este método
+            List<Pedido> listaDePedidosPendientes = controlador.mostrarPedidosPendientes();
+            mostrarPedidosController.mostrarPedidos(listaDePedidosPendientes);
+        });
 
     }
     private void mostrarArticulos() {
@@ -176,18 +220,9 @@ public class GestionOSController implements Initializable {
         System.out.println("Se hizo clic en Eliminar Pedido");
     }
 
-    private void mostrarPedidos() {
-        // Implementa la lógica para "Mostrar Pedidos"
-        System.out.println("Se hizo clic en Mostrar Pedidos");
-    }
-
     private void mostrarPedidosPendientes() {
             // Implementa la lógica para "Mostrar Pedidos"
             System.out.println("Se hizo clic en Mostrar Pedidos Pendientes");
-    }
-    private void mostrarPedidosEnviados() {
-            // Implementa la lógica para "Mostrar Pedidos"
-            System.out.println("Se hizo clic en Mostrar Pedidos Enviados");
     }
 
     private void abrirVentana(String titulo, String fxml, Object controller, Consumer<Object> configureController) {
@@ -242,6 +277,15 @@ public class GestionOSController implements Initializable {
         this.addClienteController = addClienteController;
     }
 
+    public void setAnadirPedidoController(AnadirPedidoController addPedidoController) {
+        this.addPedidoController = addPedidoController;
+    }
+
+    public void setEliminarPedidoController(EliminarPedidoController deletePedidoController) {
+        this.deletePedidoController = deletePedidoController;
+    }
+
+
     public void setGestionOSController(GestionOSController gestionOSController) {
     }
 
@@ -251,6 +295,27 @@ public class GestionOSController implements Initializable {
 
     public void setMostrarClientesController(MostrarClientesController mostrarClientesController) {
         this.mostrarClientesController = mostrarClientesController;
+    }
+
+    public void setMostrarClientesEstandarController(MostrarClientesEstandarController mostrarClientesEstandarController) {
+        this.mostrarClientesEstandarController = mostrarClientesEstandarController;
+    }
+
+    public void setMostrarClientesPremiumController(MostrarClientesPremiumController mostrarClientesPremiumController) {
+        this.mostrarClientesPremiumController = mostrarClientesPremiumController;
+    }
+
+    public void setMostrarPedidosController(MostrarPedidosController mostrarPedidosController) {
+        this.mostrarPedidosController = mostrarPedidosController;
+    }
+
+    public void setMostrarPedidosEnviadosController(MostrarPedidosEnviadosController mostrarPedidosEnviadosController) {
+        this.mostrarPedidosEnviadosController = mostrarPedidosEnviadosController;
+    }
+
+
+    public void setMostrarPedidosPendientesController(MostrarPedidosPendientesController mostrarPedidosPendientesController) {
+        this.mostrarPedidosPendientesController = mostrarPedidosPendientesController;
     }
 }
 

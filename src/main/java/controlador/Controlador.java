@@ -40,10 +40,9 @@ public class Controlador {
 
     public List<Cliente> mostrarClientes() { return datos.mostrarClientes(); }
 
-    public List mostrarClientesEstandar() { return datos.mostrarClientesEstandar(); }
+    public List<Cliente> mostrarClientesEstandar() { return datos.mostrarClientesEstandar(); }
 
-    public List mostrarClientesPremium() { return datos.mostrarClientesPremium(); }
-
+    public List<Cliente> mostrarClientesPremium() { return datos.mostrarClientesPremium(); }
 
     public List<Pedido> mostrarPedidos() { return datos.mostrarPedidos(); }
 

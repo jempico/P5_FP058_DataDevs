@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.vista.MostrarClientesPremiumController">
+    <children>
+        <TableView fx:id="tableViewClientes" prefHeight="400.0" prefWidth="600.0">
+            <columns>
+                <TableColumn fx:id="colid_cliente" prefWidth="123.20001375675201" text="id_cliente" />
+                <TableColumn fx:id="colnombre" prefWidth="93.5999984741211" text="nombre" />
+                <TableColumn fx:id="coldomicilio" prefWidth="118.0" text="domicilio" />
+                <TableColumn fx:id="colemail" prefWidth="92.79998779296875" text="emaiil" />
+                <TableColumn fx:id="coltipoCliente" prefWidth="157.39999389648438" text="tipoCliente" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

@@ -83,8 +83,6 @@ public class Datos {
 
             transaction.commit();
 
-            System.out.println("***Pedido correctamente añadido!!***");
-            System.out.println(pedido.toString());
         } catch (Exception e) {
             // Handle exceptions and roll back the transaction if necessary
             if (transaction != null && transaction.isActive()) {
@@ -331,7 +329,7 @@ public class Datos {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
+        System.out.println(pedidosEnviados);
         return pedidosEnviados;
     }
 

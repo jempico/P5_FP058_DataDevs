@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class MostrarClientesController implements Initializable {
+public class MostrarClientesEstandarController implements Initializable {
 
     private Controlador controlador;
     @FXML
@@ -36,9 +36,6 @@ public class MostrarClientesController implements Initializable {
     @FXML
     private TableColumn<Cliente, String> coltipoCliente;
 
-    //private ObservableValue<Integer> preparacionCellValueFactory(TableColumn.CellDataFeatures<Articulo, Integer> cellData) {
-    //    return cellData.getValue().preparacionProperty().asObject();
-    //}
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -61,17 +58,16 @@ public class MostrarClientesController implements Initializable {
     private void cargarDatos() {
         // Obtener datos desde el DAO
         try {
-            List<Cliente> listaDeCliente = controlador.mostrarClientes();
-            System.out.println(listaDeCliente);
+            List<Cliente> listaDeClientes = controlador.mostrarClientesEstandar();
             // Agregar datos a la tabla
-            tableViewClientes.getItems().addAll(listaDeCliente);
-            this.mostrarClientes(listaDeCliente);
+            tableViewClientes.getItems().addAll(listaDeClientes);
+            this.mostrarClientesEstandar(listaDeClientes);
         } catch (Exception e) {
             e.printStackTrace();
             // Manejar la excepción apropiadamente en tu aplicación
         }
     }
-    public void mostrarClientes(List<Cliente> listaDeClientes) {
+    public void mostrarClientesEstandar(List<Cliente> listaDeClientes) {
         // Asegúrate de que tableViewClientes esté inicializado antes de intentar trabajar con él
         if (tableViewClientes != null) {
             // Limpia los elementos existentes en la tabla

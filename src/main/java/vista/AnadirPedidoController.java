@@ -9,19 +9,18 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AnadirArticuloController implements Initializable {
+public class AnadirPedidoController implements Initializable {
+    @FXML
+    private TextField txtcantidad;
 
     @FXML
-    private TextField txtdescripcion;
+    private TextField txtfecha;
 
     @FXML
-    private TextField txtpvp;
+    private TextField txtid_articulo;
 
     @FXML
-    private TextField txtgastosenvio;
-
-    @FXML
-    private TextField txtpreparacion;
+    private TextField txtid_cliente;
 
     private GestionOSController controller;
 
@@ -35,26 +34,25 @@ public class AnadirArticuloController implements Initializable {
     }
 
     @FXML
-    private void addArticulo() {
+    private void addPedido() {
 
         try {
             // Obtén los valores de los TextField
-            String descripcion = txtdescripcion.getText();
-            Double pvp = Double.parseDouble(txtpvp.getText());
-            Double gastosenvio = Double.parseDouble(txtgastosenvio.getText());
-            int preparacion = Integer.parseInt(txtpreparacion.getText());
+            Integer cantidad = Integer.parseInt(txtcantidad.getText());
+            String fechaHoraPedido = "2024-01-08 22:00";
+            Integer idArticulo = Integer.parseInt(txtid_articulo.getText());
+            Integer idCliente = Integer.parseInt(txtid_cliente.getText());
 
-            // Llama al método addArticulo del controlador
-            controlador.addArticulo(descripcion, pvp, gastosenvio, preparacion);
+            // Llama al método addCliente del controlador
+             controlador.addPedido(idCliente, idArticulo, cantidad, fechaHoraPedido);
 
             // Puedes mostrar un mensaje de éxito o realizar otras acciones según tus requisitos
-            controller.mostrarMensaje("Artículo agregado correctamente");
+            controller.mostrarMensaje("Pedido agregado correctamente");
 
         } catch (NumberFormatException e) {
             mostrarMensaje("Ha habido un error en el formato de entrada");
         }
-
-}
+    }
 
     private void mostrarMensaje(String mensaje) {
         System.out.println(mensaje);

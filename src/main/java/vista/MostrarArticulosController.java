@@ -56,7 +56,6 @@ public class MostrarArticulosController implements Initializable {
 
         // Cargar datos desde la base de datos u otro origen si es necesario
         cargarDatos();
-        mostrarArticulos();
     }
 
     private void cargarDatos() {
